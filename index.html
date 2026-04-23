@@ -1,281 +1,300 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sayari Global Bank | RWA Institutional Banking</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Sayari Global Holding | Empowering Global Markets</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        :root { 
-            --brand-gold: #D4AF37; 
-            --brand-gold-light: rgba(212,175,55,0.2);
-            --navy: #0A1FAF;
-            --ivory: #FCFAF7;
-        }
-        body { font-family: 'Inter', sans-serif; background-color: var(--ivory); color: var(--navy); scroll-behavior: smooth; overflow-x: hidden; }
-        h1, h2, h3, .brand { font-family: 'Cinzel', serif; }
-        
-        /* Animazione Logo */
-        .arrow-grow { animation: arrowSlide 3s infinite ease-in-out; }
-        @keyframes arrowSlide {
-            0%, 100% { transform: translate(0, 0); opacity: 1; }
-            50% { transform: translate(3px, -3px); opacity: 0.8; }
+        :root {
+            --primary-gold: #d4af37;
+            --dark-black: #050505;
+            --soft-black: #0f0f0f;
+            --white-pure: #ffffff;
+            --text-muted: #b0b0b0;
+            --border-gold: rgba(212, 175, 55, 0.2);
         }
 
-        /* RAGGI FITTI E ONDULATI */
-        .rays-bg {
-            position: absolute;
-            width: 160%;
-            height: 160%;
-            top: -30%;
-            left: -30%;
-            background: repeating-conic-gradient(
-                from 0deg,
-                transparent 0deg 1.5deg,
-                var(--brand-gold) 2deg,
-                transparent 2.5deg 4deg
-            );
-            mask-image: radial-gradient(circle, black 25%, transparent 75%);
-            -webkit-mask-image: radial-gradient(circle, black 25%, transparent 75%);
-            opacity: 0.3;
-            filter: url(#wavyFilter);
-            animation: slowRotate 120s linear infinite;
-            pointer-events: none;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--dark-black);
+            color: var(--white-pure);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.7;
+            font-weight: 300;
+            overflow-x: hidden;
         }
 
-        @keyframes slowRotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+
+        h1, h2, h3, .logo { 
+            font-family: 'Playfair Display', serif; 
+            font-weight: 400;
         }
 
-        .btn-gold { 
-            background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-light) 100%);
+        .gold-text { color: var(--primary-gold); }
+
+        .section-label {
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Navigation */
+        .nav {
+            padding: 25px 0;
+            background: rgba(5, 5, 5, 0.95);
+            backdrop-filter: blur(15px);
+            position: sticky; top: 0; z-index: 1000;
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; text-decoration: none; color: white; letter-spacing: 1px; }
+        .logo span { color: var(--primary-gold); font-style: italic; }
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; transition: 0.4s; }
+        .nav-links a:hover { color: var(--primary-gold); }
+
+        /* Hero Section */
+        .hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(5,5,5,0.6), rgba(5,5,5,0.6)), 
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-title { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; margin-bottom: 25px; }
+
+        /* Project Layout */
+        .project-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+        .project-row.reverse { direction: rtl; }
+        .project-row.reverse .project-text { direction: ltr; }
+
+        .illustration-box {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-bottom: 3px solid var(--primary-gold);
+        }
+        .illustration-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.9) contrast(1.1);
+            transition: 0.8s ease;
+        }
+        .illustration-box:hover img { transform: scale(1.05); }
+
+        /* Assets Grid */
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .asset-card {
+            background: var(--soft-black);
+            border: 1px solid var(--border-gold);
+            text-decoration: none;
             color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: 0.4s;
         }
-        .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5); }
-        
-        .service-card { 
-            background: white; 
-            border: 1px solid rgba(10, 31, 68, 0.05);
-            border-bottom: 3px solid transparent;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-        .service-card:hover { 
-            border-bottom: 3px solid var(--brand-gold);
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(10, 31, 68, 0.08);
-        }
+        .asset-card:hover { border-color: var(--primary-gold); transform: translateY(-5px); }
+        .asset-content { padding: 30px; }
 
-        .tech-ring { animation: rotate 25s linear infinite; transform-origin: center; }
-        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-        .nav-link { position: relative; padding-bottom: 4px; }
-        .nav-link::after { content: ''; position: absolute; width: 0; height: 1px; bottom: 0; left: 0; background: var(--brand-gold); transition: width 0.3s ease; }
-        .nav-link:hover::after { width: 100%; }
-
-        .contact-card-glow { position: relative; overflow: hidden; }
-        .contact-card-glow::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.6s ease;
+        /* Leadership Section */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
-        .contact-card-glow:hover::before { opacity: 1; }
+        .member-card {
+            background: var(--soft-black);
+            padding: 40px 30px;
+            border-left: 3px solid var(--primary-gold);
+            transition: 0.3s;
+        }
+        .member-card:hover { background: #151515; }
+        .member-name { font-size: 1.4rem; margin-bottom: 5px; }
+        .member-role { color: var(--primary-gold); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Footer */
+        .footer {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-gold);
+            background: #020202;
+            text-align: center;
+        }
+        .legal-notice { margin-top: 40px; color: var(--text-muted); font-size: 0.75rem; }
+
+        @media (max-width: 768px) {
+            .project-row { grid-template-columns: 1fr; gap: 40px; }
+            .hero-title { font-size: 2.8rem; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
-    <svg style="position: absolute; width: 0; height: 0;">
-        <filter id="wavyFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" result="noise" />
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="35" />
-        </filter>
-    </svg>
-
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-[var(--brand-gold)]/10">
-        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex items-center space-x-3 text-navy">
-                <div class="w-10 h-10">
-                    <svg viewBox="0 0 100 100">
-                        <rect x="10" y="10" width="80" height="80" rx="4" fill="#D4AF37"/>
-                        <path d="M45 45 H85 V85 H45 Z" fill="white"/>
-                        <g class="arrow-grow">
-                            <path d="M25 75 L55 45 V65 H35 L25 75Z" fill="white"/>
-                            <path d="M55 45 L40 45 L55 30 V45Z" fill="#D4AF37"/>
-                        </g>
-                    </svg>
-                </div>
-                <span class="brand text-xl tracking-[0.2em] uppercase font-bold">Planet Sayari Bank</span>
-            </div>
-            <div class="hidden lg:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em]">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#presence" class="nav-link">Presence</a>
-                <a href="#contact" class="text-[var(--brand-gold)]">Contact</a>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-inner">
+                <a href="#" class="logo">SAYARI <span>Global Holding</span></a>
+                <ul class="nav-links">
+                    <li><a href="#initiatives">Initiatives</a></li>
+                    <li><a href="#ecosystem">Ecosystem</a></li>
+                    <li><a href="#leadership">Board</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#contact" style="background:var(--primary-gold); color:black; padding:10px 20px; text-decoration:none; font-size:0.7rem; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Partner with us</a>
             </div>
         </div>
     </nav>
 
-    <section id="home" class="min-h-screen flex items-center pt-24 px-6 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
-            <div data-aos="fade-right" data-aos-duration="1200" class="z-10">
-                <span class="text-[var(--brand-gold)] font-bold uppercase tracking-[0.4em] text-[10px] mb-6 block">The Future of Institutional Assets</span>
-                <h1 class="text-5xl lg:text-7xl font-bold leading-tight mb-8">
-                    Bridging <span class="text-[var(--brand-gold)] italic">Traditional Capital</span> & Digital Liquidity.
-                </h1>
-                <p class="text-lg text-slate-500 mb-10 leading-relaxed font-light">
-                    Sayari Global Bank is the global orchestrator of tokenized assets backed by <strong>Real World Assets</strong>. We operate at the intersection of technology and finance to transform tangible assets into liquid instruments.
-                </p>
-                <div class="flex flex-wrap gap-6">
-                    <a href="https://calendly.com/bb-srl26/30min" target="_blank" class="btn-gold px-12 py-5 rounded-sm font-bold uppercase text-[10px] tracking-[0.3em]">Access Home Banking</a>
-                    <a href="#services" class="border border-navy/10 px-12 py-5 rounded-sm font-bold uppercase text-[10px] tracking-[0.3em] hover:bg-navy hover:text-white transition duration-500">Core Business</a>
+    <section class="hero">
+        <div class="container">
+            <span class="section-label">Institutional Evolution</span>
+            <h1 class="hero-title">Architecting <br><span class="gold-text">Global</span> Prosperity</h1>
+            <p style="max-width: 600px; color: #ccc; margin-bottom: 40px;">Sayari Global Holding bridges traditional sectors with high-performance digital finance across Europe, Africa, and the Americas.</p>
+        </div>
+    </section>
+
+    <section id="initiatives" style="background-color: var(--soft-black);">
+        <div class="container">
+            <div style="margin-bottom: 80px; text-align: center;">
+                <span class="section-label">Strategic Roadmap</span>
+                <h2 style="font-size: 3rem;">Core Initiatives</h2>
+            </div>
+
+            <div class="project-row">
+                <div class="project-img-box">
+                    <div class="illustration-box">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1000&auto=format&fit=crop" alt="Banking and Fintech">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 20px;" class="gold-text">Banking & Fintech</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">Revolutionizing financial accessibility through Siegfried Asset Management. We are developing crypto-friendly banking ecosystems for our future Sayari Global Bank to bridge the gap between legacy systems and the digital future.</p>
                 </div>
             </div>
 
-            <div class="relative flex justify-center items-center h-[600px]" data-aos="zoom-in" data-aos-duration="1500">
-                <div class="rays-bg"></div>
-                <div class="relative z-10 w-full max-w-lg flex justify-center items-center">
-                    <svg viewBox="0 0 500 500" class="w-full h-full">
-                        <circle cx="250" cy="250" r="220" stroke="#D4AF37" stroke-width="0.3" fill="none" stroke-dasharray="10 10" opacity="0.4"/>
-                        <circle cx="250" cy="250" r="180" stroke="#D4AF37" stroke-width="0.5" fill="none" class="tech-ring" opacity="0.6"/>
-                        <foreignObject x="175" y="175" width="150" height="150">
-                            <svg viewBox="0 0 100 100">
-                                <rect x="10" y="10" width="80" height="80" rx="4" fill="#D4AF37" style="filter: drop-shadow(0 0 30px rgba(212,175,55,0.5));"/>
-                                <path d="M45 45 H85 V85 H45 Z" fill="white"/>
-                                <g class="arrow-grow">
-                                    <path d="M25 75 L55 45 V65 H35 L25 75Z" fill="white"/>
-                                    <path d="M55 45 L40 45 L55 30 V45Z" fill="#D4AF37"/>
-                                </g>
-                            </svg>
-                        </foreignObject>
-                    </svg>
+            <div class="project-row reverse">
+                <div class="project-img-box">
+                    <div class="illustration-box">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=1000&auto=format&fit=crop" alt="Premium Hospitality">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 20px;" class="gold-text">Tourism & Hospitality</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">Strategic acquisition of high-value hospitality assets in Eastern Europe, focused on premium tourism and premium senior care integration.</p>
+                </div>
+            </div>
+
+            <div class="project-row">
+                <div class="project-img-box">
+                    <div class="illustration-box">
+                        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=1000&auto=format&fit=crop" alt="Energy Infrastructure">
+                    </div>
+                </div>
+                <div class="project-text">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 20px;" class="gold-text">Infrastructure & Energy</h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">Building the backbone of African commerce. We secure refinery distribution channels and logistics infrastructure to empower regional energy stability.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-32 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-24 text-center" data-aos="fade-up">
-                <h2 class="text-4xl font-bold uppercase mb-6 tracking-widest text-navy">Institutional Services</h2>
-                <div class="w-24 h-px bg-[var(--brand-gold)] mx-auto"></div>
+    <section id="ecosystem">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-label">Group Assets</span>
+                <h2 style="font-size: 2.5rem;">The Sayari Ecosystem</h2>
             </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="service-card p-12" data-aos="fade-up">
-                    <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Current Account Opening</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">
-                        Next-generation banking solutions for global entities. Multi-currency accounts with streamlined onboarding for entities in <strong>Delaware</strong>, Kenya, and United Kingdom.
-                    </p>
-                </div>
-                <div class="service-card p-12" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="text-lg font-bold mb-6 uppercase tracking-widest text-[var(--brand-gold)]">Tokenization Gateway (RWA)</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">
-                        We turn physical value into digital value. Real estate, gold reserves, and debt instruments are fragmented into tokens compliant with international standards.
-                    </p>
-                </div>
-                <div class="service-card p-12" data-aos="fade-up" data-aos-delay="200">
-                    <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Paymastering & Fiduciary</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">
-                        Trusted third party for financial flows. We ensure every "pay-back" is distributed via Smart Contracts only when agreed conditions are met.
-                    </p>
-                </div>
-                <div class="service-card p-12" data-aos="fade-up" data-aos-delay="300">
-                    <h3 class="text-lg font-bold mb-6 uppercase tracking-widest">Digital Asset Custody</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">
-                        Military-grade protection. Secure custody for digital assets featuring Multi-Signature (Multi-Sig) systems and advanced encryption.
-                    </p>
-                </div>
-                <div class="service-card p-12 md:col-span-2 lg:col-span-1" data-aos="fade-up" data-aos-delay="400">
-                    <h3 class="text-lg font-bold mb-6 uppercase tracking-widest text-[var(--brand-gold)]">Liquidity Logistics</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed font-light">
-                        Real-time international transaction settlement, eliminating delays of traditional banking circuits for institutional partners.
-                    </p>
-                </div>
-            </div>
-
-            <div class="mt-24 text-center" data-aos="zoom-in">
-                <button class="border border-[var(--brand-gold)] text-[var(--brand-gold)] px-12 py-5 rounded-sm font-bold uppercase tracking-[0.4em] text-[10px] hover:bg-[var(--brand-gold)] hover:text-white transition duration-700">
-                    Download Sayari App (Coming Soon)
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <section id="presence" class="py-32 border-t border-[var(--brand-gold)]/10">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-0 shadow-2xl">
-            <div class="p-16 bg-white" data-aos="fade-right">
-                <h2 class="text-4xl font-bold uppercase mb-16 tracking-widest text-navy">Global Presence</h2>
-                <div class="space-y-12">
-                    <div class="flex gap-8 border-l border-[var(--brand-gold)]/20 pl-8">
-                        <span class="text-[var(--brand-gold)] font-bold text-xs tracking-widest">01</span>
-                        <div><h4 class="font-bold uppercase tracking-[0.2em] text-sm">United Kingdom</h4><p class="text-slate-400 text-xs mt-2 italic">Technological hub & proprietary software development.</p></div>
+            <div class="assets-grid">
+                <a href="https://planetsayari.com" target="_blank" class="asset-card">
+                    <div class="asset-content">
+                        <h3 style="font-size: 1.3rem;">Sayarifin Global LTD</h3>
+                        <p style="color: var(--primary-gold); font-size: 0.7rem; margin-top: 5px;">Kenya / Africa</p>
                     </div>
-                    <div class="flex gap-8 border-l border-[var(--brand-gold)]/20 pl-8">
-                        <span class="text-[var(--brand-gold)] font-bold text-xs tracking-widest">02</span>
-                        <div><h4 class="font-bold uppercase tracking-[0.2em] text-sm">Kenya</h4><p class="text-slate-400 text-xs mt-2 italic">Operational Hub for African business.</p></div>
-                    </div>
-                    <div class="flex gap-8 border-l border-[var(--brand-gold)]/20 pl-8">
-                        <span class="text-[var(--brand-gold)] font-bold text-xs tracking-widest">03</span>
-                        <div><h4 class="font-bold uppercase tracking-[0.2em] text-sm">Delaware (USA)</h4><p class="text-slate-400 text-xs mt-2 italic">Holding & international regulatory compliance.</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-[#0A1F44] p-16 text-white flex flex-col justify-center" data-aos="fade-left">
-                <h3 class="text-2xl font-bold mb-12 text-[var(--brand-gold)] uppercase tracking-[0.3em]">Future Projects</h3>
-                <ul class="space-y-10">
-                    <li class="flex items-start gap-6">
-                        <span class="text-[var(--brand-gold)] text-xl">✦</span>
-                        <div>
-                            <p class="font-bold text-white uppercase text-[11px] tracking-[0.3em] mb-3">Blockchain Infrastructure</p>
-                            <p class="text-slate-400 text-xs leading-loose font-light">Development of a dedicated network for secure and decentralized banking management.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-40 bg-white">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <div data-aos="fade-up">
-                <span class="text-[var(--brand-gold)] font-bold uppercase tracking-[0.5em] text-[9px] mb-6 block">Direct Executive Concierge</span>
-                <h2 class="text-4xl font-bold mb-24 uppercase tracking-[0.2em]">Institutional Channels</h2>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <a href="https://calendly.com/bb-srl26/30min" target="_blank" class="contact-card-glow group relative p-16 bg-[#FCFAF7] border border-[var(--brand-gold)]/10 block">
-                    <h3 class="text-lg font-bold uppercase tracking-[0.3em] mb-4">Strategic Session</h3>
-                    <p class="text-[9px] font-bold text-[var(--brand-gold)] uppercase tracking-[0.4em]">Schedule Meeting</p>
                 </a>
-                <a href="https://t.me/cm_1_2_3" target="_blank" class="contact-card-glow group relative p-16 bg-[#FCFAF7] border border-[var(--brand-gold)]/10 block">
-                    <h3 class="text-lg font-bold uppercase tracking-[0.3em] mb-4">Direct Concierge</h3>
-                    <p class="text-[9px] font-bold text-[var(--brand-gold)] uppercase tracking-[0.4em]">Launch Messenger</p>
+                <a href="https://assetgenesisdao.xyz" target="_blank" class="asset-card">
+                    <div class="asset-content">
+                        <h3 style="font-size: 1.3rem;">Asset Genesis DAO</h3>
+                        <p style="color: var(--primary-gold); font-size: 0.7rem; margin-top: 5px;">Digital Assets</p>
+                    </div>
+                </a>
+                <a href="https://trading.siegfriedasset.co.uk" target="_blank" class="asset-card">
+                    <div class="asset-content">
+                        <h3 style="font-size: 1.3rem;">Siegfried Asset Management</h3>
+                        <p style="color: var(--primary-gold); font-size: 0.7rem; margin-top: 5px;">London / UK</p>
+                    </div>
+                </a>
+                <a href="https://planetsayaribank.space" target="_blank" class="asset-card">
+                    <div class="asset-content">
+                        <h3 style="font-size: 1.3rem;">Planet Sayari Bank (next Sayari Global Bank )</h3>
+                        <p style="color: var(--primary-gold); font-size: 0.7rem; margin-top: 5px;">Zurich / CH</p>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="py-24 bg-[#FCFAF7] border-t border-[var(--brand-gold)]/10 text-center">
-        <div class="brand text-navy text-xl tracking-[0.6em] mb-8 uppercase">Sayari Gl9bal Bank</div>
-        <p class="text-[8px] uppercase tracking-[0.5em] text-slate-400 leading-[3]">
-            Nodes: United Kingdom • Kenya • Delaware (USA)<br>
-            © 2026 Sayari Global Bank. All rights reserved.
-        </p>
+    <section id="leadership" style="background-color: var(--soft-black);">
+        <div class="container">
+            <div style="margin-bottom: 50px;">
+                <span class="section-label">Governance</span>
+                <h2 style="font-size: 2.5rem;">Board of Directors</h2>
+            </div>
+            <div class="leadership-grid">
+                <div class="member-card">
+                    <h3 class="member-name">Michele Cucchierato</h3>
+                    <p class="member-role">CEO / Chairman</p>
+                </div>
+                <div class="member-card">
+                    <h3 class="member-name">Chidibere Offor</h3>
+                    <p class="member-role">CFO / CTO</p>
+                </div>
+                <div class="member-card">
+                    <h3 class="member-name">Duncano Oduor</h3>
+                    <p class="member-role">Legal & Compliance</p>
+                </div>
+                <div class="member-card">
+                    <h3 class="member-name">Romeo Nita</h3>
+                    <p class="member-role">Stakeholder Mgmt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="logo">SAYARI <span>Global Holding</span></a>
+            <div class="legal-notice">
+                <p>Planet Sayari LLC</p>
+                <p style="opacity: 0.6; margin-top: 5px;">A Delaware registered holding company</p>
+            </div>
+            <div style="margin-top: 40px; font-size: 0.7rem; color: #444; letter-spacing: 2px;">
+                USA | UK | KENYA | ROMANIA
+            </div>
+        </div>
     </footer>
 
-    <script>
-        AOS.init({ duration: 1200, once: true, offset: 50 });
-    </script>
 </body>
 </html>
